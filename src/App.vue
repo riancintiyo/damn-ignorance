@@ -1,4 +1,5 @@
 <script setup>
+// @ts-ignore
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 </script>
