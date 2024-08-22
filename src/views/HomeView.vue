@@ -296,13 +296,17 @@ register()
         </div>
     </section>
     <section class="mt-14 md:mt-16 px-2 md:px-4 text-di-white-read">
-        <h1 class="text-di-sub-title font-noto text-center">Top 3 Provinces With Outstanding Loans</h1>
+        <h1 class="text-di-sub-title font-noto text-center">
+            Top 3 Provinces With Outstanding Loans
+        </h1>
         <div class="flex items-center justify-center w-full mx-2 mt-8">
-            <img :src="Maps" alt="Map Indonesia">
+            <img :src="Maps" alt="Map Indonesia" />
         </div>
     </section>
     <section class="mt-14 md:mt-16 px-2 md:px-4">
-        <div class="grid md:grid-cols-2 grid-cols-1 gap-4 items-center justify-items-center">
+        <div
+            class="grid md:grid-cols-2 grid-cols-1 gap-4 items-center justify-items-center"
+        >
             <div class="order-1 font-jakarta text-di-white-read">
                 <h1 class="font-light text-di-sub-title">
                     <span class="font-extrabold text-[2.5rem]">A Shocking</span>
@@ -320,12 +324,24 @@ register()
                 </p>
             </div>
             <div class="order-2">
-                <img class="object-cover bg-center" :src="Dots" alt="dots statistic">
+                <img
+                    class="object-cover bg-center"
+                    :src="Dots"
+                    alt="dots statistic"
+                />
             </div>
         </div>
     </section>
     <section class="mt-14 md:mt-16 px-2 md:px-4 text-di-white-read">
-        <h1 class="font-noto text-di-sub-title max-w-[600px]">How Can We Design an Innovative Solutions?</h1>
+        <h1 class="font-noto text-di-sub-title max-w-[600px]">
+            How Can We Design an Innovative Solutions?
+        </h1>
+        <p class="text-di-desc font-jakarta mt-2 w-full">
+            This project tackles the growing threat of illegal fintech by
+            harnessing the power of <b class="text-di-red">design thinking</b>. Unlike traditional
+            approaches, <b class="text-di-red">design thinking</b> is a human-centered process that
+            prioritizes empathy and creative problem-solving.
+        </p>
     </section>
 </template>
 
