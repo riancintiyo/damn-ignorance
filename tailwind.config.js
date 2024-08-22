@@ -11,19 +11,25 @@ export default {
                         fontWeight: '700'
                     }
                 ],
+                'di-title-mobile': [
+                    '3rem',
+                    {
+                        fontWeight: '700',
+                        letterSpacing: '-0.02rem'
+                    }
+                ],
                 'di-paragraph': [
                     '1.5rem',
                     {
-                        fontWeight: '400',
                         lineHeight: '150%',
                         letterSpacing: '-0.01rem'
                     }
                 ],
                 'di-desc': [
-                    '1.25rem',
+                    '1rem',
                     {
-                        fontWeight: '400',
-                        lineHeight: '160%'
+                        lineHeight: '160%',
+                        letterSpacing: '-0.01rem'
                     }
                 ],
                 'di-sub-title': [
@@ -37,7 +43,6 @@ export default {
                 'di-slider-text': [
                     '1.5rem',
                     {
-                        fontWeight: '400',
                         lineHeight: '150%'
                     }
                 ],
@@ -51,33 +56,25 @@ export default {
                 'di-secondary-sub-title': [
                     '2rem',
                     {
-                        fontWeight: '400',
-                        lineHeight: '150%'
-                    }
-                ],
-                'di-secondary-sub-title': [
-                    '2rem',
-                    {
-                        fontWeight: '400',
                         lineHeight: '150%'
                     }
                 ],
                 'di-stat-desc': [
-                    '3rem', 
+                    '3rem',
                     {
                         fontWeight: '800',
                         lineHeight: '150%'
                     }
                 ],
                 'di-animate-text': [
-                    '4rem', 
+                    '4rem',
                     {
                         fontWeight: '400',
                         lineHeight: '150%'
                     }
                 ],
                 'di-small-desc': [
-                    '0.875rem', 
+                    '0.875rem',
                     {
                         lineHeight: '150%'
                     }
