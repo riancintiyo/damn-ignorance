@@ -8,6 +8,10 @@
   margin: 10auto;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 a,
 .green {
   text-decoration: none;
