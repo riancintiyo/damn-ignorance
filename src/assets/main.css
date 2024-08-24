@@ -28,6 +28,10 @@ a,
   a:hover {
     background-color: hsla(240, 1%, 31%, 0.2);
   }
+
+   a#bounce:hover {
+    background-color: transparent; /* Or 'none', depending on what you want */
+  }
 }
 
 @media sreen and (min-width: 1024px) {
