@@ -1,5 +1,9 @@
 @import './base.css';
 
+body {
+  background: #0F0F0F !important;
+}
+
 #app {
   max-width: 1440px;
   padding: 0rem 0.5rem;

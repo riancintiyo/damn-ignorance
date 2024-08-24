@@ -1,12 +1,30 @@
 <script setup>
 // @ts-ignore
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import DamnIgnoranceLogo from './components/icons/DamnIgnorance.vue'
 import PrimaryButton from './components/PrimaryButton.vue'
 import HamburgerMenu from './components/icons/HamburgerMenu.vue'
-import { useScrollToSection } from '@/views/composables/routerto.js'
+// import { useScrollToSection } from '@/views/composables/routerto.js'
+import { useRouter } from 'vue-router'
+import { ref } from 'vue'
+// const { scrollToSection } = useScrollToSection()
 
-const { scrollToSection } = useScrollToSection()
+const router = useRouter()
+const asideVisible = ref(false)
+
+const toggleAsideMenu = () => {
+    asideVisible.value = !asideVisible.value
+    console.log('Show')
+}
+
+const scrollToSection = (sectionId) => {
+    router.push({ path: '/', hash: `#${sectionId}` })
+}
+
+const scrollToSectionAside = (sectionId) => {
+    scrollToSection(sectionId)
+    asideVisible.value = false
+}
 </script>
 
 <template>
@@ -46,11 +64,85 @@ const { scrollToSection } = useScrollToSection()
                     </PrimaryButton
                 ></a>
             </div>
-            <div class="mt-1 p-2 cursor-pointer hover:bg-di-gray md:hidden">
+            <div
+                class="mt-1 p-2 cursor-pointer hover:bg-di-gray md:hidden"
+                @click="toggleAsideMenu"
+            >
                 <HamburgerMenu />
             </div>
         </div>
     </header>
+    <template v-if="asideVisible">
+        <aside
+            class="fixed top-0 left-0 w-full h-full bg-di-black bg-opacity-50 z-50 transition-opacity duration-300 ease-in-out"
+            :class="{ 'opacity-0': !asideVisible }"
+        >
+            <div
+                class="aside-menu w-80 bg-di-black h-full p-4 absolute top-0 left-0 transition-transform duration-500 ease-in-out"
+                :style="{
+                    transform: `translateX(${asideVisible ? '0' : '-100%'})`
+                }"
+            >
+                <div class="logo mb-4">
+                    <DamnIgnoranceLogo />
+                </div>
+                <ul class="space-y-4">
+                    <li
+                        class="transition-transform duration-500 ease-in-out"
+                        :style="{
+                            transform: `translateX(${asideVisible ? '0' : '-100%'})`
+                        }"
+                    >
+                        <a
+                            @click.prevent="scrollToSectionAside('home')"
+                            class="font-jakarta text-di-small-desc"
+                            >Home</a
+                        >
+                    </li>
+                    <li
+                        class="transition-transform duration-500 ease-in-out"
+                        :style="{
+                            transform: `translateX(${asideVisible ? '0' : '-100%'})`
+                        }"
+                    >
+                        <a
+                            @click.prevent="scrollToSectionAside('about')"
+                            class="font-jakarta text-di-small-desc"
+                            >About Us</a
+                        >
+                    </li>
+                    <li
+                        class="transition-transform duration-500 ease-in-out"
+                        :style="{
+                            transform: `translateX(${asideVisible ? '0' : '-100%'})`
+                        }"
+                    >
+                        <a
+                            @click.prevent="scrollToSectionAside('solution')"
+                            class="font-jakarta text-di-small-desc"
+                            >Our Approach</a
+                        >
+                    </li>
+                    <li
+                        class="transition-transform duration-500 ease-in-out"
+                        :style="{
+                            transform: `translateX(${asideVisible ? '0' : '-100%'})`
+                        }"
+                    >
+                        <a
+                            @click.prevent="scrollToSectionAside('join')"
+                            class="font-jakarta text-di-small-desc"
+                            ><PrimaryButton
+                                msg="Join Us"
+                                :color="`bg-di-red`"
+                                :icon="false"
+                            ></PrimaryButton
+                        ></a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </template>
 
     <RouterView />
 </template>

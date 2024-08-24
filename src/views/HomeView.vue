@@ -1,5 +1,6 @@
 <script setup>
-// import TheWelcome from '../components/TheWelcome.vue'
+import { useScrollToSection } from '@/views/composables/routerto.js'
+
 import { ArrowDownIcon } from '@heroicons/vue/24/solid'
 import 'swiper/swiper-bundle.css'
 import { register } from 'swiper/element/bundle'
@@ -19,6 +20,7 @@ import AstroIcon from '@/assets/astronaut-icon.png'
 import PrimaryButton from '@/components/PrimaryButton.vue'
 import DamnIgnoranceLogo from '@/components/icons/DamnIgnorance.vue'
 
+const { scrollToSection } = useScrollToSection()
 // // register Swiper custom elements
 register()
 </script>
@@ -50,9 +52,11 @@ register()
                 oversight.
             </p>
             <div class="mt-6 hover:animate-bounce cursor-pointer">
-                <div class="border rounded-full border-di-white-read p-2">
-                    <ArrowDownIcon class="size-6 text-di-white-read" />
-                </div>
+                <a id="bounce" @click.prevent="scrollToSection('about')" class="!hover:bg-none !hover:border-none !hover:color-none">
+                    <div class="border rounded-full border-di-white-read p-2">
+                        <ArrowDownIcon class="size-6 text-di-white-read" />
+                    </div>
+                </a>
             </div>
         </div>
         <div class="mt-8 md:mt-12">
@@ -102,7 +106,7 @@ register()
             </div>
         </div>
     </section>
-    <section id="about"class="mt-14 md:mt-8 px-2 md:px-4">
+    <section id="about" class="mt-14 md:mt-8 px-2 md:px-4">
         <h1 class="font-noto text-di-sub-title text-di-white-read px-4">
             About Us
         </h1>
@@ -341,7 +345,10 @@ register()
             </div>
         </div>
     </section>
-    <section id="solution"class="mt-14 md:mt-16 px-2 md:px-4 text-di-white-read">
+    <section
+        id="solution"
+        class="mt-14 md:mt-16 px-2 md:px-4 text-di-white-read"
+    >
         <h1 class="font-noto text-di-sub-title max-w-[600px]">
             How Can We Design an Innovative Solutions?
         </h1>
@@ -430,7 +437,7 @@ register()
         </div>
     </section>
     <section
-    id="join"
+        id="join"
         class="mt-14 md:mt-16 md:px-4 text-di-white-read bg-di-gray px-2 py-4"
     >
         <div class="flex flex-col flex-nowrap max-w-fit">
@@ -493,7 +500,9 @@ register()
                     Be part of solutions, while others focus on problems.
                 </p>
             </div>
-            <div class="flex flex-wrap gap-6 md:gap-10 ml-4 mt-4 md:mt-0 md:ml-o">
+            <div
+                class="flex flex-wrap gap-6 md:gap-10 ml-4 mt-4 md:mt-0 md:ml-o"
+            >
                 <div class="">
                     <div
                         class="text-di-white-read font-jakarta font-bold text-di-desc"
@@ -525,7 +534,11 @@ register()
         class="flex justify-between items-center mt-4 px-4 text-di-small-desc text-di-white-read"
     >
         <p>&#169; 2024.Damn Ignorance. All right reserved</p>
-        <a href="https://github.com/riancintiyo" target="_blank" rel="noopener noreferrer">
+        <a
+            href="https://github.com/riancintiyo"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
             <div class="w-6 h-6">
                 <img :src="GithubIcon" alt="Github Icon" />
             </div>
