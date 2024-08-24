@@ -2,8 +2,18 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link sizes="any" type="image/svg+xml" rel="icon" href="/src/assets/logo.svg" />
-        <link sizes="any" type="image/png" rel="icon" href="/src/assets/damn-ignorance-logo.png" />
+        <link
+            sizes="any"
+            type="image/svg+xml"
+            rel="icon"
+            href="/src/assets/logo.svg"
+        />
+        <link
+            sizes="any"
+            type="image/png"
+            rel="icon"
+            href="/src/assets/damn-ignorance-logo.png"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,6 +23,20 @@
         />
         <title>Damn Ignorance</title>
     </head>
+    <!-- Google tag (gtag.js) -->
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-YW5999FQ01"
+    ></script>
+    <script>
+        window.dataLayer = window.dataLayer || []
+        function gtag() {
+            dataLayer.push(arguments)
+        }
+        gtag('js', new Date())
+
+        gtag('config', 'G-YW5999FQ01')
+    </script>
     <body>
         <div id="app"></div>
         <script type="module" src="/src/main.js"></script>
