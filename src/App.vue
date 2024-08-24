@@ -3,7 +3,10 @@
 import { RouterLink, RouterView } from 'vue-router'
 import DamnIgnoranceLogo from './components/icons/DamnIgnorance.vue'
 import PrimaryButton from './components/PrimaryButton.vue'
-import HamburgerMenu from './components/icons/HamburgerMenu.vue';
+import HamburgerMenu from './components/icons/HamburgerMenu.vue'
+import { useScrollToSection } from '@/views/composables/routerto.js'
+
+const { scrollToSection } = useScrollToSection()
 </script>
 
 <template>
@@ -15,23 +18,36 @@ import HamburgerMenu from './components/icons/HamburgerMenu.vue';
                 <DamnIgnoranceLogo />
             </div>
             <nav class="md:flex items-center space-x-4 justify-center hidden">
-                <RouterLink to="/" class="font-jakarta text-di-small-desc"
-                    >Home</RouterLink
+                <a
+                    @click.prevent="scrollToSection('home')"
+                    class="font-jakarta text-di-small-desc"
+                    >Home</a
                 >
-                <RouterLink to="/about" class="font-jakarta text-di-small-desc"
-                    >About Us</RouterLink
+                <a
+                    @click.prevent="scrollToSection('about')"
+                    class="font-jakarta text-di-small-desc"
+                    >About Us</a
                 >
-                <RouterLink to="#" class="font-jakarta text-di-small-desc"
-                    >Our Approach</RouterLink
+                <a
+                    @click.prevent="scrollToSection('solution')"
+                    class="font-jakarta text-di-small-desc"
+                    >Our Approach</a
                 >
             </nav>
             <div class="hidden md:flex space-x-6 font-jakarta items-center">
-                <div class="text-di-small-desc text-di-white-read">FAQ</div>
-                <PrimaryButton msg="Join Us" :color="`bg-di-red`" :icon="false">
-                </PrimaryButton>
+                <a
+                    @click.prevent="scrollToSection('join')"
+                    class="font-jakarta text-di-small-desc"
+                    ><PrimaryButton
+                        msg="Join Us"
+                        :color="`bg-di-red`"
+                        :icon="false"
+                    >
+                    </PrimaryButton
+                ></a>
             </div>
             <div class="mt-1 p-2 cursor-pointer hover:bg-di-gray md:hidden">
-                <HamburgerMenu/>
+                <HamburgerMenu />
             </div>
         </div>
     </header>
@@ -58,7 +74,7 @@ nav {
 }
 
 nav a.router-link-exact-active {
-    color: var(--color-text);
+    color: #fff;
 }
 
 nav a.router-link-exact-active:hover {

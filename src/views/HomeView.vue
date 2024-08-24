@@ -9,13 +9,22 @@ import Man from '@/assets/man.svg'
 import Woman from '@/assets/woman.svg'
 import Dots from '@/assets/dot-stat.png'
 import Maps from '@/assets/map-and-pin.png'
+import FocusIcon from '@/assets/focus-icon.svg'
+import LineIcon from '@/assets/line-icon.svg'
+import TelegramIcon from '@/assets/telegram-icon.svg'
+import Email from '@/assets/email-icon.svg'
+import GithubIcon from '@/assets/github_link.svg'
+import TeamIcon from '@/assets/team-icon.png'
+import AstroIcon from '@/assets/astronaut-icon.png'
+import PrimaryButton from '@/components/PrimaryButton.vue'
+import DamnIgnoranceLogo from '@/components/icons/DamnIgnorance.vue'
 
 // // register Swiper custom elements
 register()
 </script>
 
 <template>
-    <section class="main mt-10 md:mt-20">
+    <section id="home" class="main mt-10 md:mt-20">
         <!-- <TheWelcome /> -->
         <div class="flex flex-col items-center">
             <h1
@@ -93,7 +102,7 @@ register()
             </div>
         </div>
     </section>
-    <section class="mt-14 md:mt-8 px-2 md:px-4">
+    <section id="about"class="mt-14 md:mt-8 px-2 md:px-4">
         <h1 class="font-noto text-di-sub-title text-di-white-read px-4">
             About Us
         </h1>
@@ -332,17 +341,196 @@ register()
             </div>
         </div>
     </section>
-    <section class="mt-14 md:mt-16 px-2 md:px-4 text-di-white-read">
+    <section id="solution"class="mt-14 md:mt-16 px-2 md:px-4 text-di-white-read">
         <h1 class="font-noto text-di-sub-title max-w-[600px]">
             How Can We Design an Innovative Solutions?
         </h1>
-        <p class="text-di-desc font-jakarta mt-2 w-full">
+        <p class="text-di-paragraph font-jakarta mt-2 w-full">
             This project tackles the growing threat of illegal fintech by
-            harnessing the power of <b class="text-di-red">design thinking</b>. Unlike traditional
-            approaches, <b class="text-di-red">design thinking</b> is a human-centered process that
-            prioritizes empathy and creative problem-solving.
+            harnessing the power of <b class="text-di-red">design thinking</b>.
+            Unlike traditional approaches,
+            <b class="text-di-red">design thinking</b> is a human-centered
+            process that prioritizes empathy and creative problem-solving.
         </p>
+        <div
+            class="flex justify-center md:justify-evenly items-center flex-col md:flex-row mt-4 md:mt-10 gap-4 md:gap-6"
+        >
+            <div
+                class="overflow-hidden min-w-[281px] md:min-h-[297px] p-4 bg-di-gray rounded-lg flex-col flex-nowrap flex justify-between items-start gap-6 relative"
+            >
+                <div class="text-di-white-read">
+                    <p class="text-di-desc font-medium">Framework Solution</p>
+                    <h3 class="text-di-secondary-sub-title font-bold">
+                        User Focused
+                    </h3>
+                </div>
+                <div
+                    class="max-w-56 max-h-56 self-center backdrop-blur-sm blur-[1px]"
+                >
+                    <img :src="FocusIcon" alt="User Focused Icon" />
+                </div>
+                <div class="md:h-8 h-20"></div>
+                <div
+                    class="bg-di-black absolute w-full p-2 bottom-0 z-10 text-center bg-opacity-80 backdrop-blur-sm right-0 left-0 mx-auto text-ellipsis overflow-hidden text-di-small-desc text-di-white-read"
+                >
+                    We'll delve into the experiences of victims and understand
+                    their struggles to craft solutions that truly address their
+                    needs.
+                </div>
+            </div>
+            <div
+                class="overflow-hidden p-4 max-w-[281px] md:max-h-[297px] bg-di-gray rounded-lg flex-col flex-nowrap flex justify-between items-start relative md:w-full"
+            >
+                <div class="text-di-white-read">
+                    <p class="text-di-desc font-medium">Framework Solution</p>
+                    <h3 class="text-di-secondary-sub-title font-bold">
+                        Collaborative Spirit
+                    </h3>
+                </div>
+                <div
+                    class="max-w-56 max-h-56 backdrop-blur-sm blur-[1px] self-center"
+                >
+                    <img
+                        class="object-cover bg-center max-h-[168px]"
+                        :src="TeamIcon"
+                        alt="User Focused Icon"
+                    />
+                </div>
+                <!-- <div class="h-8"></div> -->
+                <div
+                    class="bg-di-black absolute w-full p-2 bottom-0 z-10 text-center bg-opacity-80 backdrop-blur-sm right-0 left-0 mx-auto text-ellipsis overflow-hidden text-di-small-desc text-di-white-read"
+                >
+                    No one has all the answers. By joining forces, we can
+                    combine diverse perspectives to generate innovative ideas.
+                </div>
+            </div>
+            <div
+                class="overflow-hidden p-4 bg-di-gray rounded-lg flex-col flex-nowrap flex justify-between items-start gap-6 relative"
+            >
+                <div class="text-di-white-read">
+                    <p class="text-di-desc font-medium">Framework Solution</p>
+                    <h3 class="text-di-secondary-sub-title font-bold">
+                        Action Oriented
+                    </h3>
+                </div>
+                <div
+                    class="max-w-56 max-h-56 backdrop-blur-sm blur-[1px] self-center"
+                >
+                    <img :src="AstroIcon" alt="User Focused Icon" />
+                </div>
+                <!-- <div class="h-8"></div> -->
+                <div
+                    class="bg-di-black absolute w-full p-2 bottom-0 z-10 text-center bg-opacity-80 backdrop-blur-sm right-0 left-0 mx-auto text-ellipsis overflow-hidden text-di-small-desc text-di-white-read"
+                >
+                    We won't just brainstorm – we'll develop practical solutions
+                    and test them in the real world, iterating towards impactful
+                    results.
+                </div>
+            </div>
+        </div>
     </section>
+    <section
+    id="join"
+        class="mt-14 md:mt-16 md:px-4 text-di-white-read bg-di-gray px-2 py-4"
+    >
+        <div class="flex flex-col flex-nowrap max-w-fit">
+            <h1 class="font-noto text-di-sub-title max-w-[600px] px-2">
+                How to join us?
+            </h1>
+            <hr class="w-full text-di-red border-di-red bg-di-red" />
+        </div>
+        <p class="mt-6 px-2 font-jakarta text-di-paragraph">
+            <b>No prior experience with design thinking is necessary.</b> In
+            fact this project is a chance to practice design thinking in real
+            case project, learn alongside like-minded individuals, unleash your
+            creativity and contribute to a solution that protects Indonesians
+            from financial exploitation.`
+        </p>
+        <p class="mt-4 px-2 font-jakarta text-di-paragraph">
+            Here's how to join:
+        </p>
+        <p class="mt-4 px-2 font-jakarta text-di-paragraph">
+            1. Send a message to our contact, with message
+            <b>"Design Thinking for Change: I Want to Help!"</b>
+            <span class="inline-block mt-4">
+                2. In next description, tell us a little about yourself and
+                share why you're passionate about tackling this problem.
+            </span>
+        </p>
+        <p class="mt-4 px-2 font-jakarta text-di-paragraph">Contact Us:</p>
+        <div class="flex justify-start items-center gap-6 mt-4">
+            <a href="mailto:damnignorance@outlook.com">
+                <PrimaryButton :color="`bg-di-black`" msg="Email" :icon="true">
+                    <template #icon>
+                        <div>
+                            <img :src="Email" alt="Email Icon" />
+                        </div>
+                    </template>
+                </PrimaryButton>
+            </a>
+            <a href="https://t.me/damnignorance">
+                <PrimaryButton
+                    :color="`bg-di-black`"
+                    msg="Telegram"
+                    :icon="true"
+                >
+                    <template #icon>
+                        <div>
+                            <img :src="TelegramIcon" alt="Telegram Icon" />
+                        </div>
+                    </template>
+                </PrimaryButton>
+            </a>
+        </div>
+    </section>
+    <footer
+        class="mt-20 md:mt-16 py-4 px-4 md:px-6 md:py-8 text-di-white-read border border-x-0 border-y border-opacity-50 border-white"
+    >
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="flex flex-col">
+                <DamnIgnoranceLogo />
+                <p class="text-di-small-desc max-w-[306px]">
+                    Be part of solutions, while others focus on problems.
+                </p>
+            </div>
+            <div class="flex flex-wrap gap-6 md:gap-10 ml-4 mt-4 md:mt-0 md:ml-o">
+                <div class="">
+                    <div
+                        class="text-di-white-read font-jakarta font-bold text-di-desc"
+                    >
+                        Information
+                    </div>
+                    <p class="max-w-[250px] text-di-small-desc">
+                        Project initiated by Rian C. Dedicated to combating
+                        illegal fintech and empowering victims.
+                    </p>
+                </div>
+                <div class="">
+                    <div
+                        class="text-di-white-read font-jakarta font-bold text-di-desc"
+                    >
+                        Contact Initiator:
+                    </div>
+                    <a
+                        class="max-w-[250px] text-di-small-desc"
+                        href="mailto:cintiyo.ryan@gmail.com"
+                    >
+                        @rian_cintiyo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div
+        class="flex justify-between items-center mt-4 px-4 text-di-small-desc text-di-white-read"
+    >
+        <p>&#169; 2024.Damn Ignorance. All right reserved</p>
+        <a href="https://github.com/riancintiyo" target="_blank" rel="noopener noreferrer">
+            <div class="w-6 h-6">
+                <img :src="GithubIcon" alt="Github Icon" />
+            </div>
+        </a>
+    </div>
 </template>
 
 <style scoped>

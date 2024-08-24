@@ -91,8 +91,22 @@ export default {
                 'di-gray': '#4D4D4F',
                 'di-red': '#C1121F',
                 'di-black-overlay': '#1D1A1A'
+            },
+            backgroundColor: {
+                'di-gray': 'rgba(91, 91, 91, 0.5)'
+            },
+            backdropBlur: {
+                sm: '1px'
             }
         }
     },
-    plugins: []
+    plugins: [
+        function ({ addUtilities }) {
+            addUtilities({
+                '.backdrop-blur-sm': {
+                    backdropFilter: 'blur(1px)'
+                }
+            })
+        }
+    ]
 }
