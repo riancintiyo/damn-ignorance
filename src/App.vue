@@ -88,6 +88,7 @@ const scrollToSectionAside = (sectionId) => {
                 <ul class="space-y-4">
                     <li>
                         <a
+                            aria-label="Go to home section"
                             href="#home"
                             @click.prevent="scrollToSectionAside('home')"
                             class="font-jakarta text-di-small-desc"
@@ -96,6 +97,7 @@ const scrollToSectionAside = (sectionId) => {
                     </li>
                     <li>
                         <a
+                            aria-label="Go to about section"
                             href="#about"
                             @click.prevent="scrollToSectionAside('about')"
                             class="font-jakarta text-di-small-desc"
@@ -104,6 +106,7 @@ const scrollToSectionAside = (sectionId) => {
                     </li>
                     <li>
                         <a
+                            aria-label="Go to solution section"
                             href="#solution"
                             @click.prevent="scrollToSectionAside('solution')"
                             class="font-jakarta text-di-small-desc"

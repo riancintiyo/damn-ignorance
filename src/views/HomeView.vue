@@ -62,6 +62,7 @@ register()
             </p>
             <div class="mt-6 hover:animate-bounce cursor-pointer">
                 <a
+                    aria-label="Go to about section"
                     id="bounce"
                     href="#about"
                     @click.prevent="scrollToSection('about')"
@@ -394,9 +395,9 @@ register()
             >
                 <div class="text-di-white-read">
                     <p class="text-di-desc font-medium">Framework Solution</p>
-                    <h3 class="text-di-secondary-sub-title font-bold">
+                    <h2 class="text-di-secondary-sub-title font-bold">
                         User Focused
-                    </h3>
+                    </h2>
                 </div>
                 <div
                     class="max-w-56 max-h-56 self-center backdrop-blur-sm blur-[1px]"
@@ -417,9 +418,9 @@ register()
             >
                 <div class="text-di-white-read">
                     <p class="text-di-desc font-medium">Framework Solution</p>
-                    <h3 class="text-di-secondary-sub-title font-bold">
+                    <h2 class="text-di-secondary-sub-title font-bold">
                         Collaborative Spirit
-                    </h3>
+                    </h2>
                 </div>
                 <div
                     class="max-w-56 max-h-56 backdrop-blur-sm blur-[1px] self-center"
@@ -443,9 +444,9 @@ register()
             >
                 <div class="text-di-white-read">
                     <p class="text-di-desc font-medium">Framework Solution</p>
-                    <h3 class="text-di-secondary-sub-title font-bold">
+                    <h2 class="text-di-secondary-sub-title font-bold">
                         Action Oriented
-                    </h3>
+                    </h2>
                 </div>
                 <div
                     class="max-w-56 max-h-56 backdrop-blur-sm blur-[1px] self-center"
