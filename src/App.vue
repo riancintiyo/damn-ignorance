@@ -129,7 +129,7 @@ const scrollToSectionAside = (sectionId) => {
     <RouterView />
 </template>
 
-<style scoped>
+<style>
 .fade-enter-active, .fade-leave-active {
     transition: opacity 0.5s ease, transform 0.5s ease;
 }

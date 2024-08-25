@@ -27,4 +27,4 @@ defineProps({
         </button>
     </div>
 </template>
-<style scoped lang="css"></style>
+<style></style>

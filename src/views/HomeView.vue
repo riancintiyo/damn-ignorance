@@ -19,10 +19,10 @@ import TeamIcon from '@/assets/team-icon.png'
 import AstroIcon from '@/assets/astronaut-icon.png'
 import PrimaryButton from '@/components/PrimaryButton.vue'
 import DamnIgnoranceLogo from '@/components/icons/DamnIgnorance.vue'
-import 'aos/dist/aos.css'; 
-import AOS from 'aos';
+import 'aos/dist/aos.css'
+import AOS from 'aos'
 
-AOS.init();
+AOS.init()
 
 const { scrollToSection } = useScrollToSection()
 // // register Swiper custom elements
@@ -30,7 +30,12 @@ register()
 </script>
 
 <template>
-    <section id="home" class="main mt-10 md:mt-20" data-aos="fade-up" data-aos-duration="1000">
+    <section
+        id="home"
+        class="main mt-10 md:mt-20"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+    >
         <!-- <TheWelcome /> -->
         <div class="flex flex-col items-center">
             <h1
@@ -56,7 +61,11 @@ register()
                 oversight.
             </p>
             <div class="mt-6 hover:animate-bounce cursor-pointer">
-                <a id="bounce" @click.prevent="scrollToSection('about')" class="!hover:bg-none !hover:border-none !hover:color-none">
+                <a
+                    id="bounce"
+                    @click.prevent="scrollToSection('about')"
+                    class="!hover:bg-none !hover:border-none !hover:color-none"
+                >
                     <div class="border rounded-full border-di-white-read p-2">
                         <ArrowDownIcon class="size-6 text-di-white-read" />
                     </div>
@@ -110,7 +119,12 @@ register()
             </div>
         </div>
     </section>
-    <section id="about" class="mt-14 md:mt-8 px-2 md:px-4" data-aos="fade-up" data-aos-duration="1000">
+    <section
+        id="about"
+        class="mt-14 md:mt-8 px-2 md:px-4"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+    >
         <h1 class="font-noto text-di-sub-title text-di-white-read px-4">
             About Us
         </h1>
@@ -184,7 +198,11 @@ register()
             </div>
         </div>
     </section>
-    <section class="mt-14 md:mt-16 px-2 md:px-4" data-aos="fade-up" data-aos-duration="1000">
+    <section
+        class="mt-14 md:mt-16 px-2 md:px-4"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+    >
         <h1 class="text-di-sub-title font-noto text-di-white-read text-center">
             Data from OJK January 2024
         </h1>
@@ -225,7 +243,11 @@ register()
             </div>
         </div>
     </section>
-    <section class="mt-14 md:mt-16 px-2 md:px-4 bg-di-gray py-8" data-aos="fade-up" data-aos-duration="1000">
+    <section
+        class="mt-14 md:mt-16 px-2 md:px-4 bg-di-gray py-8"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+    >
         <h1
             class="text-di-sub-title font-jakarta text-di-white-read text-center"
         >
@@ -497,7 +519,9 @@ register()
     <footer
         class="mt-20 md:mt-16 py-4 px-4 md:px-6 md:py-8 text-di-white-read border border-x-0 border-y border-opacity-50 border-white"
     >
-        <div class="flex flex-col md:flex-row justify-center items-start md:justify-between md:items-center">
+        <div
+            class="flex flex-col md:flex-row justify-center items-start md:justify-between md:items-center"
+        >
             <div class="flex flex-col">
                 <DamnIgnoranceLogo />
                 <p class="text-di-small-desc max-w-[306px]">
@@ -505,7 +529,7 @@ register()
                 </p>
             </div>
             <div
-                class="flex flex-wrap gap-6 md:gap-10 ml-4 mt-4 md:mt-0 md:ml-o"
+                class="flex flex-wrap gap-6 md:gap-10 mt-4"
             >
                 <div class="">
                     <div
@@ -550,7 +574,7 @@ register()
     </div>
 </template>
 
-<style scoped>
+<style>
 .swiper-container {
     width: 100%;
     max-width: 100%;
