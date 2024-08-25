@@ -63,6 +63,7 @@ register()
             <div class="mt-6 hover:animate-bounce cursor-pointer">
                 <a
                     id="bounce"
+                    href="#about"
                     @click.prevent="scrollToSection('about')"
                     class="!hover:bg-none !hover:border-none !hover:color-none"
                 >
@@ -528,9 +529,7 @@ register()
                     Be part of solutions, while others focus on problems.
                 </p>
             </div>
-            <div
-                class="flex flex-wrap gap-6 md:gap-10 mt-4"
-            >
+            <div class="flex flex-wrap gap-6 md:gap-10 mt-4">
                 <div class="">
                     <div
                         class="text-di-white-read font-jakarta font-bold text-di-desc"

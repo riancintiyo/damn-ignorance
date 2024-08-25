@@ -73,67 +73,72 @@ const scrollToSectionAside = (sectionId) => {
         </div>
     </header>
     <!-- <template> -->
-        <Transition name="fade">
-            <aside
-                v-if="asideVisible"
-                class="fixed top-0 left-0 w-full h-full bg-di-black bg-opacity-50 z-50"
-                :class="{ 'opacity-0': !asideVisible }"
+    <Transition name="fade">
+        <aside
+            v-if="asideVisible"
+            class="fixed top-0 left-0 w-full h-full bg-di-black bg-opacity-50 z-50"
+            :class="{ 'opacity-0': !asideVisible }"
+        >
+            <div
+                class="aside-menu w-80 bg-di-black h-full p-4 absolute top-0 left-0"
             >
-                <div
-                    class="aside-menu w-80 bg-di-black h-full p-4 absolute top-0 left-0"
-                >
-                    <div class="logo mb-4">
-                        <DamnIgnoranceLogo />
-                    </div>
-                    <ul class="space-y-4">
-                        <li>
-                            <a
-                                @click.prevent="scrollToSectionAside('home')"
-                                class="font-jakarta text-di-small-desc"
-                                >Home</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                @click.prevent="scrollToSectionAside('about')"
-                                class="font-jakarta text-di-small-desc"
-                                >About Us</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                @click.prevent="
-                                    scrollToSectionAside('solution')
-                                "
-                                class="font-jakarta text-di-small-desc"
-                                >Our Approach</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                @click.prevent="scrollToSectionAside('join')"
-                                class="font-jakarta text-di-small-desc"
-                                ><PrimaryButton
-                                    msg="Join Us"
-                                    :color="`bg-di-red`"
-                                    :icon="false"
-                                ></PrimaryButton
-                            ></a>
-                        </li>
-                    </ul>
+                <div class="logo mb-4">
+                    <DamnIgnoranceLogo />
                 </div>
-            </aside>
-        </Transition>
+                <ul class="space-y-4">
+                    <li>
+                        <a
+                            href="#home"
+                            @click.prevent="scrollToSectionAside('home')"
+                            class="font-jakarta text-di-small-desc"
+                            >Home</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#about"
+                            @click.prevent="scrollToSectionAside('about')"
+                            class="font-jakarta text-di-small-desc"
+                            >About Us</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#solution"
+                            @click.prevent="scrollToSectionAside('solution')"
+                            class="font-jakarta text-di-small-desc"
+                            >Our Approach</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            @click.prevent="scrollToSectionAside('join')"
+                            class="font-jakarta text-di-small-desc"
+                            ><PrimaryButton
+                                msg="Join Us"
+                                :color="`bg-di-red`"
+                                :icon="false"
+                            ></PrimaryButton
+                        ></a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </Transition>
     <!-- </template> -->
 
     <RouterView />
 </template>
 
 <style>
-.fade-enter-active, .fade-leave-active {
-    transition: opacity 0.5s ease, transform 0.5s ease;
+.fade-enter-active,
+.fade-leave-active {
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
 }
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
     opacity: 0;
     transform: translateX(-100%);
 }
@@ -142,7 +147,8 @@ const scrollToSectionAside = (sectionId) => {
     transition: opacity 0.5s ease;
 }
 
-.fade-enter-to, .fade-leave-from {
+.fade-enter-to,
+.fade-leave-from {
     opacity: 1;
     transform: translateX(0);
 }
