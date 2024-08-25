@@ -37,16 +37,19 @@ const scrollToSectionAside = (sectionId) => {
             </div>
             <nav class="md:flex items-center space-x-4 justify-center hidden">
                 <a
+                    href="#home"
                     @click.prevent="scrollToSection('home')"
                     class="font-jakarta text-di-small-desc"
                     >Home</a
                 >
                 <a
+                    href="#about"
                     @click.prevent="scrollToSection('about')"
                     class="font-jakarta text-di-small-desc"
                     >About Us</a
                 >
                 <a
+                    href="#solution"
                     @click.prevent="scrollToSection('solution')"
                     class="font-jakarta text-di-small-desc"
                     >Our Approach</a
@@ -54,6 +57,7 @@ const scrollToSectionAside = (sectionId) => {
             </nav>
             <div class="hidden md:flex space-x-6 font-jakarta items-center">
                 <a
+                    href="#join"
                     @click.prevent="scrollToSection('join')"
                     class="font-jakarta text-di-small-desc"
                     ><PrimaryButton
@@ -115,6 +119,7 @@ const scrollToSectionAside = (sectionId) => {
                     </li>
                     <li>
                         <a
+                            href="#join"
                             @click.prevent="scrollToSectionAside('join')"
                             class="font-jakarta text-di-small-desc"
                             ><PrimaryButton
