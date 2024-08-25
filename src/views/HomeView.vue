@@ -19,6 +19,10 @@ import TeamIcon from '@/assets/team-icon.png'
 import AstroIcon from '@/assets/astronaut-icon.png'
 import PrimaryButton from '@/components/PrimaryButton.vue'
 import DamnIgnoranceLogo from '@/components/icons/DamnIgnorance.vue'
+import 'aos/dist/aos.css'; 
+import AOS from 'aos';
+
+AOS.init();
 
 const { scrollToSection } = useScrollToSection()
 // // register Swiper custom elements
@@ -26,7 +30,7 @@ register()
 </script>
 
 <template>
-    <section id="home" class="main mt-10 md:mt-20">
+    <section id="home" class="main mt-10 md:mt-20" data-aos="fade-up" data-aos-duration="1000">
         <!-- <TheWelcome /> -->
         <div class="flex flex-col items-center">
             <h1
@@ -106,7 +110,7 @@ register()
             </div>
         </div>
     </section>
-    <section id="about" class="mt-14 md:mt-8 px-2 md:px-4">
+    <section id="about" class="mt-14 md:mt-8 px-2 md:px-4" data-aos="fade-up" data-aos-duration="1000">
         <h1 class="font-noto text-di-sub-title text-di-white-read px-4">
             About Us
         </h1>
@@ -180,7 +184,7 @@ register()
             </div>
         </div>
     </section>
-    <section class="mt-14 md:mt-16 px-2 md:px-4">
+    <section class="mt-14 md:mt-16 px-2 md:px-4" data-aos="fade-up" data-aos-duration="1000">
         <h1 class="text-di-sub-title font-noto text-di-white-read text-center">
             Data from OJK January 2024
         </h1>
@@ -221,7 +225,7 @@ register()
             </div>
         </div>
     </section>
-    <section class="mt-14 md:mt-16 px-2 md:px-4 bg-di-gray py-8">
+    <section class="mt-14 md:mt-16 px-2 md:px-4 bg-di-gray py-8" data-aos="fade-up" data-aos-duration="1000">
         <h1
             class="text-di-sub-title font-jakarta text-di-white-read text-center"
         >
@@ -245,7 +249,7 @@ register()
                 class="flex md:flex-col w-full items-center mt-6 overflow-hidden"
             >
                 <p
-                    class="min-w-[140px] w-[140px] md:w-full text-di-white-read md:text-center text-di-paragraph font-semibold max-w-20 md:max-w-none text-center md:mb-6"
+                    class="min-w-[140px] w-[140px] md:w-full text-di-white-read md:text-center text-di-desc md:text-di-paragraph font-semibold max-w-20 md:max-w-none text-center md:mb-6"
                 >
                     Total Outstanding Loans
                 </p>
@@ -266,7 +270,7 @@ register()
             </div>
             <div class="flex md:flex-col w-full items-center mt-6">
                 <div
-                    class="min-w-[140px] w-[140px] md:w-full text-di-white-read md:text-center text-di-paragraph font-semibold max-w-20 md:max-w-none text-center md:mb-6"
+                    class="min-w-[140px] w-[140px] md:w-full text-di-white-read md:text-center text-di-desc md:text-di-paragraph font-semibold max-w-20 md:max-w-none text-center md:mb-6"
                 >
                     Non Performing Loans
                 </div>
@@ -287,7 +291,7 @@ register()
             </div>
             <div class="flex md:flex-col w-full items-center mt-6">
                 <div
-                    class="min-w-[140px] w-[140px] md:w-full text-di-white-read md:text-center text-di-paragraph font-semibold max-w-20 md:max-w-none text-center md:mb-6"
+                    class="min-w-[140px] w-[140px] md:w-full text-di-white-read md:text-center text-di-desc md:text-di-paragraph font-semibold max-w-20 md:max-w-none text-center md:mb-6"
                 >
                     Financial Literacy
                 </div>
@@ -493,7 +497,7 @@ register()
     <footer
         class="mt-20 md:mt-16 py-4 px-4 md:px-6 md:py-8 text-di-white-read border border-x-0 border-y border-opacity-50 border-white"
     >
-        <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex flex-col md:flex-row justify-center items-start md:justify-between md:items-center">
             <div class="flex flex-col">
                 <DamnIgnoranceLogo />
                 <p class="text-di-small-desc max-w-[306px]">

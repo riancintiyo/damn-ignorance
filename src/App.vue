@@ -72,82 +72,80 @@ const scrollToSectionAside = (sectionId) => {
             </div>
         </div>
     </header>
-    <template v-if="asideVisible">
-        <aside
-            class="fixed top-0 left-0 w-full h-full bg-di-black bg-opacity-50 z-50 transition-opacity duration-300 ease-in-out"
-            :class="{ 'opacity-0': !asideVisible }"
-        >
-            <div
-                class="aside-menu w-80 bg-di-black h-full p-4 absolute top-0 left-0 transition-transform duration-500 ease-in-out"
-                :style="{
-                    transform: `translateX(${asideVisible ? '0' : '-100%'})`
-                }"
+    <!-- <template> -->
+        <Transition name="fade">
+            <aside
+                v-if="asideVisible"
+                class="fixed top-0 left-0 w-full h-full bg-di-black bg-opacity-50 z-50"
+                :class="{ 'opacity-0': !asideVisible }"
             >
-                <div class="logo mb-4">
-                    <DamnIgnoranceLogo />
+                <div
+                    class="aside-menu w-80 bg-di-black h-full p-4 absolute top-0 left-0"
+                >
+                    <div class="logo mb-4">
+                        <DamnIgnoranceLogo />
+                    </div>
+                    <ul class="space-y-4">
+                        <li>
+                            <a
+                                @click.prevent="scrollToSectionAside('home')"
+                                class="font-jakarta text-di-small-desc"
+                                >Home</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                @click.prevent="scrollToSectionAside('about')"
+                                class="font-jakarta text-di-small-desc"
+                                >About Us</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                @click.prevent="
+                                    scrollToSectionAside('solution')
+                                "
+                                class="font-jakarta text-di-small-desc"
+                                >Our Approach</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                @click.prevent="scrollToSectionAside('join')"
+                                class="font-jakarta text-di-small-desc"
+                                ><PrimaryButton
+                                    msg="Join Us"
+                                    :color="`bg-di-red`"
+                                    :icon="false"
+                                ></PrimaryButton
+                            ></a>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="space-y-4">
-                    <li
-                        class="transition-transform duration-500 ease-in-out"
-                        :style="{
-                            transform: `translateX(${asideVisible ? '0' : '-100%'})`
-                        }"
-                    >
-                        <a
-                            @click.prevent="scrollToSectionAside('home')"
-                            class="font-jakarta text-di-small-desc"
-                            >Home</a
-                        >
-                    </li>
-                    <li
-                        class="transition-transform duration-500 ease-in-out"
-                        :style="{
-                            transform: `translateX(${asideVisible ? '0' : '-100%'})`
-                        }"
-                    >
-                        <a
-                            @click.prevent="scrollToSectionAside('about')"
-                            class="font-jakarta text-di-small-desc"
-                            >About Us</a
-                        >
-                    </li>
-                    <li
-                        class="transition-transform duration-500 ease-in-out"
-                        :style="{
-                            transform: `translateX(${asideVisible ? '0' : '-100%'})`
-                        }"
-                    >
-                        <a
-                            @click.prevent="scrollToSectionAside('solution')"
-                            class="font-jakarta text-di-small-desc"
-                            >Our Approach</a
-                        >
-                    </li>
-                    <li
-                        class="transition-transform duration-500 ease-in-out"
-                        :style="{
-                            transform: `translateX(${asideVisible ? '0' : '-100%'})`
-                        }"
-                    >
-                        <a
-                            @click.prevent="scrollToSectionAside('join')"
-                            class="font-jakarta text-di-small-desc"
-                            ><PrimaryButton
-                                msg="Join Us"
-                                :color="`bg-di-red`"
-                                :icon="false"
-                            ></PrimaryButton
-                        ></a>
-                    </li>
-                </ul>
-            </div>
-        </aside>
-    </template>
+            </aside>
+        </Transition>
+    <!-- </template> -->
 
     <RouterView />
 </template>
 
 <style scoped>
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.fade-enter-from, .fade-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+.aside-menu {
+    transition: opacity 0.5s ease;
+}
+
+.fade-enter-to, .fade-leave-from {
+    opacity: 1;
+    transform: translateX(0);
+}
 header {
     line-height: 1.5;
     max-height: 100vh;
@@ -155,14 +153,12 @@ header {
 
 .logo {
     display: block;
-    /* margin: 0 auto 2rem; */
 }
 
 nav {
     width: 100%;
     font-size: 12px;
     text-align: center;
-    /* margin-top: 2rem; */
 }
 
 nav a.router-link-exact-active {
@@ -176,21 +172,16 @@ nav a.router-link-exact-active:hover {
 nav a {
     display: inline-block;
     padding: 0 1rem;
-    /* border-left: 1px solid var(--color-border); */
 }
 
 nav a:first-of-type {
     border: 0;
 }
 
-@media sreen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
     nav {
         text-align: left;
-        /* margin-left: -1rem; */
         font-size: 1rem;
-
-        /* padding: 1rem 0; */
-        /* margin-top: 1rem; */
     }
 }
 </style>
