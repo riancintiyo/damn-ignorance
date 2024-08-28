@@ -1,6 +1,5 @@
 <script setup>
 import { useScrollToSection } from '@/views/composables/routerto.js'
-
 import { ArrowDownIcon } from '@heroicons/vue/24/solid'
 import 'swiper/swiper-bundle.css'
 import { register } from 'swiper/element/bundle'
@@ -21,6 +20,7 @@ import PrimaryButton from '@/components/PrimaryButton.vue'
 import DamnIgnoranceLogo from '@/components/icons/DamnIgnorance.vue'
 import 'aos/dist/aos.css'
 import AOS from 'aos'
+import anime from 'animejs/lib/anime.es.js';
 
 AOS.init()
 
