@@ -22,11 +22,41 @@ import 'aos/dist/aos.css'
 import AOS from 'aos'
 import anime from 'animejs/lib/anime.es.js';
 
-AOS.init()
+import { ref, onMounted, onUnmounted  } from 'vue'
 
+AOS.init()
 const { scrollToSection } = useScrollToSection()
 // // register Swiper custom elements
 register()
+
+const increment = ref(null)
+const section = ref(null);
+const animateIncrement = () => {
+  anime({
+    targets: increment.value,
+    textContent: 42,
+    round: 1,
+    easing: 'easeInOutQuad',
+    duration: 3500,
+  });
+};
+
+onMounted(() => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateIncrement();
+        observer.unobserve(section.value); // Stop observing after animation starts
+      }
+    });
+  });
+
+  observer.observe(section.value);
+
+  onUnmounted(() => {
+    observer.disconnect(); // Cleanup observer when component is unmounted
+  });
+});
 </script>
 
 <template>
@@ -344,7 +374,7 @@ register()
             <img :src="Maps" alt="Map Indonesia" />
         </div>
     </section>
-    <section class="mt-14 md:mt-16 px-2 md:px-4">
+    <section ref="section" class="mt-14 md:mt-16 px-2 md:px-4">
         <div
             class="grid md:grid-cols-2 grid-cols-1 gap-4 items-center justify-items-center"
         >
@@ -354,7 +384,7 @@ register()
                     <br />
                     Pattern Emerges
                 </h1>
-                <h1 class="text-[120px] font-extrabold">42%</h1>
+                <h1 ref="increment" class="text-[120px] font-extrabold">0<span>%</span></h1>
                 <p class="mt-4 text-di-paragraph font-light">
                     Data reveals a disturbing truth: a staggering 42% of illegal
                     fintech victims come from the teaching profession. These
