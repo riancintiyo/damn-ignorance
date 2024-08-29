@@ -1,28 +1,27 @@
 <script setup>
 import { useScrollToSection } from '@/views/composables/routerto.js'
-import { ArrowDownIcon } from '@heroicons/vue/24/solid'
-import 'swiper/swiper-bundle.css'
+import anime from 'animejs/lib/anime.es.js'
+import AOS from 'aos'
 import { register } from 'swiper/element/bundle'
+import { ArrowDownIcon } from '@heroicons/vue/24/solid'
+import 'aos/dist/aos.css'
+import 'swiper/swiper-bundle.css'
 import { descriptions } from './data/descriptions'
 import ScaleIcon from '@/components/icons/ScaleIcon.vue'
+import PrimaryButton from '@/components/PrimaryButton.vue'
+import DamnIgnoranceLogo from '@/components/icons/DamnIgnorance.vue'
+import Dots from '@/assets/dot-stat.webp'
+import Maps from '@/assets/map-and-pin.webp'
+import TeamIcon from '@/assets/team-icon.webp'
+import AstroIcon from '@/assets/astronaut-icon.webp'
 import Man from '@/assets/man.svg'
 import Woman from '@/assets/woman.svg'
-import Dots from '@/assets/dot-stat.png'
-import Maps from '@/assets/map-and-pin.png'
 import FocusIcon from '@/assets/focus-icon.svg'
-import LineIcon from '@/assets/line-icon.svg'
 import TelegramIcon from '@/assets/telegram-icon.svg'
 import Email from '@/assets/email-icon.svg'
 import GithubIcon from '@/assets/github_link.svg'
-import TeamIcon from '@/assets/team-icon.png'
-import AstroIcon from '@/assets/astronaut-icon.png'
-import PrimaryButton from '@/components/PrimaryButton.vue'
-import DamnIgnoranceLogo from '@/components/icons/DamnIgnorance.vue'
-import 'aos/dist/aos.css'
-import AOS from 'aos'
-import anime from 'animejs/lib/anime.es.js';
 
-import { ref, onMounted, onUnmounted  } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 AOS.init()
 const { scrollToSection } = useScrollToSection()
@@ -30,33 +29,33 @@ const { scrollToSection } = useScrollToSection()
 register()
 
 const increment = ref(null)
-const section = ref(null);
+const section = ref(null)
 const animateIncrement = () => {
-  anime({
-    targets: increment.value,
-    textContent: 42,
-    round: 1,
-    easing: 'easeInOutQuad',
-    duration: 3500,
-  });
-};
+    anime({
+        targets: increment.value,
+        textContent: 42,
+        round: 1,
+        easing: 'easeInOutQuad',
+        duration: 3000
+    })
+}
 
 onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        animateIncrement();
-        observer.unobserve(section.value); // Stop observing after animation starts
-      }
-    });
-  });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                animateIncrement()
+                observer.unobserve(section.value) // Stop observing after animation starts
+            }
+        })
+    })
 
-  observer.observe(section.value);
+    observer.observe(section.value)
 
-  onUnmounted(() => {
-    observer.disconnect(); // Cleanup observer when component is unmounted
-  });
-});
+    onUnmounted(() => {
+        observer.disconnect() // Cleanup observer when component is unmounted
+    })
+})
 </script>
 
 <template>
@@ -384,8 +383,14 @@ onMounted(() => {
                     <br />
                     Pattern Emerges
                 </h1>
-                <h1 ref="increment" class="text-[120px] font-extrabold">0<span>%</span></h1>
-                <p class="mt-4 text-di-paragraph font-light">
+                <h1 ref="increment" class="text-[120px] font-extrabold">
+                    0<span>%</span>
+                </h1>
+                <p
+                    class="mt-4 text-di-paragraph font-light"
+                    data-aos="fade-up"
+                    data-aos-duration="3000"
+                >
                     Data reveals a disturbing truth: a staggering 42% of illegal
                     fintech victims come from the teaching profession. These
                     educators, entrusted with nurturing young minds, are
@@ -394,7 +399,7 @@ onMounted(() => {
                     another demographic often facing financial vulnerability.
                 </p>
             </div>
-            <div class="order-2">
+            <div class="order-2" data-aos="fade-up" data-aos-duration="3000">
                 <img
                     class="object-cover bg-center"
                     :src="Dots"

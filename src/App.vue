@@ -14,7 +14,6 @@ const asideVisible = ref(false)
 
 const toggleAsideMenu = () => {
     asideVisible.value = !asideVisible.value
-    console.log('Show')
 }
 
 const scrollToSection = (sectionId) => {
