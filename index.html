@@ -6,12 +6,17 @@
             name="description"
             content="Indonesia's fintech industry is experiencing explosive growth, with outstanding loans reaching a staggering 60 trillion rupiah in 2024."
         />
+        <!-- Canonical URL: replace with your production URL -->
+        <link rel="canonical" href="https://www.damnignorance.com/" />
         <link
             sizes="any"
             type="image/png"
             rel="icon"
             href="/src/assets/damn-ignorance-logo.webp"
         />
+        <!-- Optional: Apple touch icon (place the image in /public) -->
+        <link rel="apple-touch-icon" href="/damn-ignorance-logo.webp" />
+        <meta name="theme-color" content="#0b0b0b" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,6 +26,58 @@
             media="print"
             onload="this.media='all'"
         />
+        <!-- Open Graph (Facebook, LinkedIn) -->
+        <meta property="og:title" content="Damn Ignorance" />
+        <meta
+            property="og:description"
+            content="Indonesia's fintech industry is experiencing explosive growth, with outstanding loans reaching a staggering 60 trillion rupiah in 2024."
+        />
+        <!-- Use absolute URL to your deployed image -->
+        <meta
+            property="og:image"
+            content="https://www.damnignorance.com/damn-ignorance-logo.webp"
+        />
+        <meta property="og:url" content="https://www.damnignorance.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Damn Ignorance" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Damn Ignorance" />
+        <meta
+            name="twitter:description"
+            content="Indonesia's fintech industry is experiencing explosive growth, with outstanding loans reaching a staggering 60 trillion rupiah in 2024."
+        />
+        <meta
+            name="twitter:image"
+            content="https://www.damnignorance.com/damn-ignorance-logo.webp"
+        />
+
+        <!-- Organization & WebSite structured data (Logo appears in search results) -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Damn Ignorance",
+                "url": "https://www.damnignorance.com/",
+                "logo": "https://www.damnignorance.com/damn-ignorance-logo.webp",
+                "sameAs": ["https://github.com/riancintiyo"]
+            }
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "Damn Ignorance",
+                "url": "https://www.damnignorance.com/",
+                "inLanguage": "en",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://www.damnignorance.com/?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+            }
+        </script>
         <title>Damn Ignorance</title>
     </head>
 
@@ -28,7 +85,7 @@
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-YW5999FQ01"
     ></script>
-    
+
     <script>
         window.dataLayer = window.dataLayer || []
         function gtag() {
