@@ -7,17 +7,17 @@
   "theme_color": "#0b0b0b",
   "icons": [
     {
-      "src": "/damn-ignorance-logo.png",
+      "src": "/damn-ignorance-logo-16.png",
       "sizes": "16x16",
       "type": "image/png"
     },
     {
-      "src": "/damn-ignorance-logo.png",
+      "src": "/damn-ignorance-logo.webp",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "/damn-ignorance-logo.png",
+      "src": "/damn-ignorance-logo-180.png",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"
