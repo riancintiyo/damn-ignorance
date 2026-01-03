@@ -30,6 +30,14 @@ register()
 
 const increment = ref(null)
 const section = ref(null)
+
+// OJK Statistics refs
+const ojkSection = ref(null)
+const loansRef = ref(null)
+const growthRef = ref(null)
+const nplRef = ref(null)
+const platformsRef = ref(null)
+
 const animateIncrement = () => {
     anime({
         targets: increment.value,
@@ -37,6 +45,66 @@ const animateIncrement = () => {
         round: 1,
         easing: 'easeInOutQuad',
         duration: 3000
+    })
+}
+
+const animateOjkStats = () => {
+    // Outstanding Loans: 0 -> 60T
+    const loansObj = { value: 0 }
+    anime({
+        targets: loansObj,
+        value: 60,
+        round: 1,
+        easing: 'easeInOutQuad',
+        duration: 2000,
+        update: function() {
+            if (loansRef.value) {
+                loansRef.value.textContent = Math.round(loansObj.value) + 'T'
+            }
+        }
+    })
+
+    // Growth: 0 -> 18.4%
+    const growthObj = { value: 0 }
+    anime({
+        targets: growthObj,
+        value: 18.4,
+        easing: 'easeInOutQuad',
+        duration: 2000,
+        update: function() {
+            if (growthRef.value) {
+                growthRef.value.textContent = growthObj.value.toFixed(1) + '%'
+            }
+        }
+    })
+
+    // NPL: 0 -> 2.95%
+    const nplObj = { value: 0 }
+    anime({
+        targets: nplObj,
+        value: 2.95,
+        easing: 'easeInOutQuad',
+        duration: 2000,
+        update: function() {
+            if (nplRef.value) {
+                nplRef.value.textContent = nplObj.value.toFixed(2) + '%'
+            }
+        }
+    })
+
+    // Platforms: 0 -> 101
+    const platformsObj = { value: 0 }
+    anime({
+        targets: platformsObj,
+        value: 101,
+        round: 1,
+        easing: 'easeInOutQuad',
+        duration: 2000,
+        update: function() {
+            if (platformsRef.value) {
+                platformsRef.value.textContent = Math.round(platformsObj.value)
+            }
+        }
     })
 }
 
@@ -52,8 +120,21 @@ onMounted(() => {
 
     observer.observe(section.value)
 
+    // Observer for OJK statistics section
+    const ojkObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                animateOjkStats()
+                ojkObserver.unobserve(ojkSection.value)
+            }
+        })
+    })
+
+    ojkObserver.observe(ojkSection.value)
+
     onUnmounted(() => {
         observer.disconnect() // Cleanup observer when component is unmounted
+        ojkObserver.disconnect()
     })
 })
 </script>
@@ -230,6 +311,7 @@ onMounted(() => {
         </div>
     </section>
     <section
+        ref="ojkSection"
         class="mt-14 md:mt-16 px-2 md:px-4"
         data-aos="fade-up"
         data-aos-duration="1000"
@@ -246,7 +328,7 @@ onMounted(() => {
                 <p class="text-di-paragraph text-di-white-read font-light">
                     Outstanding Loans
                 </p>
-                <div class="text-di-stat-desc text-di-white-read">60T</div>
+                <div ref="loansRef" class="text-di-stat-desc text-di-white-read">0T</div>
             </div>
             <div
                 class="flex justify-center items-center flex-col gap-2 md:gap-4"
@@ -254,7 +336,7 @@ onMounted(() => {
                 <p class="text-di-paragraph text-di-white-read font-light">
                     Growth
                 </p>
-                <div class="text-di-stat-desc text-di-white-read">18.4%</div>
+                <div ref="growthRef" class="text-di-stat-desc text-di-white-read">0%</div>
             </div>
             <div
                 class="flex justify-center items-center flex-col gap-2 md:gap-4"
@@ -262,7 +344,7 @@ onMounted(() => {
                 <p class="text-di-paragraph text-di-white-read font-light">
                     NPL
                 </p>
-                <div class="text-di-stat-desc text-di-white-read">2.95%</div>
+                <div ref="nplRef" class="text-di-stat-desc text-di-white-read">0%</div>
             </div>
             <div
                 class="flex justify-center items-center flex-col gap-2 md:gap-4"
@@ -270,7 +352,7 @@ onMounted(() => {
                 <p class="text-di-paragraph text-di-white-read font-light">
                     Registered Platforms
                 </p>
-                <div class="text-di-stat-desc text-di-white-read">101</div>
+                <div ref="platformsRef" class="text-di-stat-desc text-di-white-read">0</div>
             </div>
         </div>
     </section>
@@ -311,11 +393,13 @@ onMounted(() => {
                 >
                     <div
                         class="text-di-white-read font-light text-di-secondary-sub-title"
+
                     >
                         8M
                     </div>
                     <div
                         class="text-di-white-read font-light text-di-secondary-sub-title"
+
                     >
                         9M
                     </div>
@@ -332,11 +416,13 @@ onMounted(() => {
                 >
                     <div
                         class="text-di-white-read font-light text-di-secondary-sub-title"
+
                     >
                         1.2M
                     </div>
                     <div
                         class="text-di-white-read font-light text-di-secondary-sub-title"
+
                     >
                         943K
                     </div>
@@ -353,13 +439,15 @@ onMounted(() => {
                 >
                     <div
                         class="text-di-white-read font-light text-di-secondary-sub-title"
+
                     >
-                        49%
+                        49<span>%</span>
                     </div>
                     <div
                         class="text-di-white-read font-light text-di-secondary-sub-title"
+
                     >
-                        50%
+                        50<span>%</span>
                     </div>
                 </div>
             </div>
