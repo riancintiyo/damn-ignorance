@@ -4,6 +4,7 @@ import { RouterView } from 'vue-router'
 import DamnIgnoranceLogo from './components/icons/DamnIgnorance.vue'
 import PrimaryButton from './components/PrimaryButton.vue'
 import HamburgerMenu from './components/icons/HamburgerMenu.vue'
+import BookletViewer from './components/BookletViewer.vue'
 // import { useScrollToSection } from '@/views/composables/routerto.js'
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
@@ -165,61 +166,12 @@ const scrollToSectionAside = (sectionId) => {
     </Transition>
     <!-- </template> -->
 
-    <!-- Booklet Modal -->
-    <Transition name="modal">
-        <div
-            v-if="bookletModalVisible"
-            class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-80"
-            @click.self="closeBookletModal"
-        >
-            <div
-                class="relative w-[95vw] h-[90vh] max-w-6xl bg-di-black rounded-lg overflow-hidden shadow-2xl"
-            >
-                <!-- Close Button -->
-                <button
-                    @click="closeBookletModal"
-                    class="absolute top-3 right-3 z-10 w-10 h-10 flex items-center justify-center bg-di-red hover:bg-red-700 text-white rounded-full transition-colors duration-200"
-                    aria-label="Close booklet"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="w-6 h-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12"
-                        />
-                    </svg>
-                </button>
-                <!-- Loading Overlay -->
-                <Transition name="fade-loading">
-                    <div
-                        v-if="bookletLoading"
-                        class="absolute inset-0 z-[5] flex flex-col items-center justify-center bg-di-black"
-                    >
-                        <div class="booklet-loader"></div>
-                        <p class="mt-4 text-white font-jakarta text-sm">
-                            Loading booklet...
-                        </p>
-                    </div>
-                </Transition>
-                <!-- Issuu Embed iFrame -->
-                <iframe
-                    src="https://e.issuu.com/embed.html?d=damn_ignorance_booklet&u=damnignorance"
-                    class="w-full h-full border-0"
-                    allowfullscreen
-                    allow="clipboard-write"
-                    title="Damn Ignorance Booklet"
-                    @load="onBookletLoaded"
-                ></iframe>
-            </div>
-        </div>
-    </Transition>
+    <!-- Booklet Viewer -->
+    <BookletViewer
+        :visible="bookletModalVisible"
+        pdf-url="/damn_ignorance.pdf"
+        @close="closeBookletModal"
+    />
 
     <RouterView />
 </template>
@@ -245,50 +197,6 @@ const scrollToSectionAside = (sectionId) => {
 .fade-leave-from {
     opacity: 1;
     transform: translateX(0);
-}
-
-/* Modal transitions */
-.modal-enter-active,
-.modal-leave-active {
-    transition: opacity 0.3s ease;
-}
-.modal-enter-from,
-.modal-leave-to {
-    opacity: 0;
-}
-.modal-enter-active .relative,
-.modal-leave-active .relative {
-    transition: transform 0.3s ease;
-}
-.modal-enter-from .relative,
-.modal-leave-to .relative {
-    transform: scale(0.9);
-}
-
-/* Loading fade transition */
-.fade-loading-enter-active,
-.fade-loading-leave-active {
-    transition: opacity 0.4s ease;
-}
-.fade-loading-enter-from,
-.fade-loading-leave-to {
-    opacity: 0;
-}
-
-/* Booklet loader spinner */
-.booklet-loader {
-    width: 50px;
-    height: 50px;
-    border: 4px solid rgba(255, 255, 255, 0.2);
-    border-top-color: #e53935;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
 }
 
 header {
